@@ -26,7 +26,7 @@
       nuestra historia, podrás seguir escribiéndola. 💖</p>
     <input type="password" id="passwordInput" placeholder="Contraseña">
     <button onclick="checkPassword()">Ingresar</button>
-    <p id="errorMessage" class="hidden"></p>
+    <p id="errorMessage" class="hidden">Contraseña incorrecta, intenta de nuevo. ❌</p>
   </div>
 </div>
 
@@ -73,18 +73,28 @@
   </div>
 </div>
 
-    <audio id="bg-music" autoplay loop>
-      <source src="musica.mp3" type="audio/mpeg">
-      Tu navegador no soporta el elemento de audio.
-    </audio>
-    
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const audio = document.getElementById("bg-music");
-        audio.muted = false;
-        audio.play().catch(error => console.log("Autoplay bloqueado: " + error));
-      });
-    </script>
+<!-- Música de fondo (inicia cuando la contraseña es correcta) -->
+<audio id="bg-music" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+  Tu navegador no soporta el elemento de audio.
+</audio>
+
+<script>
+  function checkPassword() {
+    const passwordInput = document.getElementById("passwordInput").value;
+    const correctPassword = "agosto15"; // Reemplaza con la contraseña correcta
+    const errorMessage = document.getElementById("errorMessage");
+    const audio = document.getElementById("bg-music");
+
+    if (passwordInput === correctPassword) {
+      errorMessage.classList.add("hidden"); // Ocultar mensaje de error
+      audio.play().catch(error => console.log("Error al reproducir música:", error));
+      alert("¡Bienvenido! 🎶");
+    } else {
+      errorMessage.classList.remove("hidden"); // Mostrar mensaje de error
+    }
+  }
+</script>
 </body>
 
 </html>
