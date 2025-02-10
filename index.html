@@ -75,7 +75,7 @@
 
 <!-- Música de fondo (inicia cuando la contraseña es correcta) -->
 <audio id="bg-music" loop>
-  <source src="musica.mp3" type="audio/mpeg">
+  <source src="music.mp3" type="audio/mpeg">
   Tu navegador no soporta el elemento de audio.
 </audio>
 
@@ -96,7 +96,7 @@
       // Reproducir música solo después de hacer clic
       audio.play().catch(error => console.log("Error al reproducir música:", error));
 
-      alert("🎉 ¡Bienvenido! Disfruta la música 🎶");
+      // // alert("🎉 ¡Bienvenido! Disfruta la música 🎶");
     } else {
       // Muestra el mensaje de error
       errorMessage.textContent = "❌ Contraseña incorrecta. Intenta de nuevo.";
