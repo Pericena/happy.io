@@ -64,7 +64,7 @@
 
     </div>
 
-    <p class="text-right">Nombre de la persona:D</p>
+    <p class="text-right">Jenne Rebucas</p>
     <section class="customer-logos slider">
       <div class="slide"><img src="1.jpg" width="40" height="80"></div>
       <div class="slide"><img src="2.jpg" width="40" height="80"></div>
@@ -79,22 +79,39 @@
   Tu navegador no soporta el elemento de audio.
 </audio>
 
+
+
 <script>
   function checkPassword() {
-    const passwordInput = document.getElementById("passwordInput").value;
-    const correctPassword = "agosto15"; // Reemplaza con la contraseña correcta
+    const passwordInput = document.getElementById("passwordInput");
     const errorMessage = document.getElementById("errorMessage");
-    const audio = document.getElementById("bg-music");
+    const audio = document.getElementById("bg-music"); // Música de fondo
+    const password = passwordInput.value.trim();
 
-    if (passwordInput === correctPassword) {
-      errorMessage.classList.add("hidden"); // Ocultar mensaje de error
+    // Contraseña correcta
+    if (password === "12345") { // Cambia la contraseña aquí
+      document.getElementById("passwordModal").style.display = "none"; // Ocultar modal
+      document.getElementById("mainContent").classList.remove("hidden"); // Mostrar contenido
+
+      // Reproducir música solo después de hacer clic
       audio.play().catch(error => console.log("Error al reproducir música:", error));
-      alert("¡Bienvenido! 🎶");
+
+      alert("🎉 ¡Bienvenido! Disfruta la música 🎶");
     } else {
-      errorMessage.classList.remove("hidden"); // Mostrar mensaje de error
+      // Muestra el mensaje de error
+      errorMessage.textContent = "❌ Contraseña incorrecta. Intenta de nuevo.";
+      errorMessage.classList.remove("hidden");
+
+      // Limpia el input
+      passwordInput.value = "";
+
+      // Efecto de vibración
+      passwordInput.classList.add("shake");
+      setTimeout(() => passwordInput.classList.remove("shake"), 500);
     }
   }
 </script>
+
 </body>
 
 </html>
@@ -332,29 +349,7 @@
   }
 </style>
 
-<script>
-  function checkPassword() {
-    const passwordInput = document.getElementById("passwordInput");
-    const errorMessage = document.getElementById("errorMessage");
-    const password = passwordInput.value.trim();
 
-    // Contraseña correcta
-    if (password === "12345") {
-      document.getElementById("passwordModal").style.display = "none";
-      document.getElementById("mainContent").classList.remove("hidden");
-    } else {
-      // Muestra el mensaje de error
-      errorMessage.textContent = "❌ Contraseña incorrecta. Intenta de nuevo.";
-
-      // Limpia el input
-      passwordInput.value = "";
-
-      // Efecto de vibración
-      passwordInput.classList.add("shake");
-      setTimeout(() => passwordInput.classList.remove("shake"), 500);
-    }
-  }
-</script>
 
 <script>
   $(document).ready(function () {
