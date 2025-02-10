@@ -23,7 +23,7 @@
   <div class="modal-content">
     <h2>Ingresa la contraseña para continuar</h2>
     <p>La llave para entrar es el mes en que nuestras vidas se cruzaron y el día en que todo comenzó. Si recuerdas
-      nuestra historia, podrás seguir escribiéndola. 💖</p>
+      nuestra historia, podrás seguir escribiéndola. 💖 el formato es 00/00/</p>
     <input type="password" id="passwordInput" placeholder="Contraseña">
     <button onclick="checkPassword()">Ingresar</button>
     <p id="errorMessage" class="hidden">Contraseña incorrecta, intenta de nuevo. ❌</p>
@@ -90,7 +90,7 @@
     const password = passwordInput.value.trim();
 
     // Contraseña correcta
-    if (password === "12345") { // Cambia la contraseña aquí
+    if (password === "11/02") { // Cambia la contraseña aquí
       document.getElementById("passwordModal").style.display = "none"; // Ocultar modal
       document.getElementById("mainContent").classList.remove("hidden"); // Mostrar contenido
 
